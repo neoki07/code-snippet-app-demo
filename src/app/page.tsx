@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { snippets } from "./store";
+import { sleep } from "@/lib/sleep";
 
 export async function getSnippets() {
+  await sleep(1000);
   return { snippets };
 }
 
