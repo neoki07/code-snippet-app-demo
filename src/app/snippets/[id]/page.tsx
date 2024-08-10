@@ -1,15 +1,5 @@
-import { client } from "@/lib/hono";
+import { getSnippet } from "@/store";
 import { notFound } from "next/navigation";
-
-async function getSnippet(id: string) {
-  const response = await client.api.snippets[":id"].$get({ param: { id } });
-
-  if (!response.ok) {
-    notFound();
-  }
-
-  return response.json();
-}
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { snippet } = await getSnippet(params.id);

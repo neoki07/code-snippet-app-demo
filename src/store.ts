@@ -8,7 +8,7 @@ interface Snippet {
   author: string;
 }
 
-export const snippets: Snippet[] = [
+const snippets: Snippet[] = [
   {
     id: "1",
     title: "Snippet 1",
@@ -31,3 +31,12 @@ export const snippets: Snippet[] = [
     author: "John Doe",
   },
 ];
+
+export async function getSnippets() {
+  return { snippets };
+}
+
+export async function getSnippet(id: string) {
+  const snippet = snippets.find((snippet) => snippet.id === id);
+  return { snippet };
+}

@@ -1,10 +1,5 @@
 import Link from "next/link";
-import { client } from "@/lib/hono";
-
-async function getSnippets() {
-  const response = await client.api.snippets.$get();
-  return response.json();
-}
+import { getSnippets } from "@/store";
 
 export default async function Home() {
   const { snippets } = await getSnippets();
