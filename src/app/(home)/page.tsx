@@ -15,12 +15,18 @@ export default async function Home() {
       <ul className="list-disc list-outside ml-5">
         {snippets.map((snippet) => (
           <li key={snippet.title}>
-            <Link
-              href={`snippets/${snippet.id}`}
-              className="underline hover:no-underline text-blue-600"
-            >
-              {snippet.title}
-            </Link>
+            <div>
+              <Link
+                href={`snippets/${snippet.id}`}
+                className="underline hover:no-underline text-blue-600"
+              >
+                {snippet.title}
+              </Link>
+              <span className="text-gray-700 text-xs">
+                {" "}
+                by {snippet.author}
+              </span>
+            </div>
           </li>
         ))}
       </ul>
