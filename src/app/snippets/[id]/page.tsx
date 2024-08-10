@@ -1,11 +1,14 @@
-import { snippets } from "@/app/store";
-import { sleep } from "@/lib/sleep";
+import { client } from "@/lib/hono";
 import { notFound } from "next/navigation";
 
 async function getSnippet(id: string) {
-  await sleep(1000);
-  const snippet = snippets.find((s) => s.id === id);
-  return { snippet };
+  const response = await client.api.snippets[":id"].$get({ param: { id } });
+
+  if (!response.ok) {
+    notFound();
+  }
+
+  return response.json();
 }
 
 export default async function Page({ params }: { params: { id: string } }) {

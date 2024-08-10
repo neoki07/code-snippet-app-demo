@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { snippets } from "./store";
-import { sleep } from "@/lib/sleep";
+import { client } from "@/lib/hono";
 
 async function getSnippets() {
-  await sleep(1000);
-  return { snippets };
+  const response = await client.api.snippets.$get();
+  return response.json();
 }
 
 export default async function Home() {
