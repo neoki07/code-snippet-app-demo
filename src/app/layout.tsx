@@ -32,12 +32,20 @@ export default function RootLayout({
                 {metadata.title as string}
               </Link>
             </div>
-            <div className="flex items-center text-sm">
+            <div className="flex items-center text-sm gap-4">
               <SignedOut>
                 <SignInButton />
               </SignedOut>
               <SignedIn>
-                <UserButton />
+                <Link
+                  href="/new"
+                  className="text-white hover:text-gray-200 hover:underline"
+                >
+                  Add Snippet
+                </Link>
+                <div className="w-7 flex items-center">
+                  <UserButton />
+                </div>
               </SignedIn>
             </div>
           </header>
