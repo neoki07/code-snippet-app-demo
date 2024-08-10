@@ -13,7 +13,7 @@ export default async function Home() {
             <div>
               <Link
                 href={`snippets/${snippet.id}`}
-                className="underline hover:no-underline text-blue-600"
+                className="underline hover:no-underline text-blue-600 visited:text-purple-900"
               >
                 {snippet.title}
               </Link>
