@@ -16,7 +16,7 @@ export default async function Home() {
       <ul className="list-disc list-outside ml-5">
         {snippets.map((snippet) => (
           <li key={snippet.title}>
-            <Link href="">{snippet.title}</Link>
+            <Link href={`snippets/${snippet.id}`}>{snippet.title}</Link>
           </li>
         ))}
       </ul>
