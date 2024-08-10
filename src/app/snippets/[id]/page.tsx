@@ -2,7 +2,7 @@ import { snippets } from "@/app/store";
 import { sleep } from "@/lib/sleep";
 import { notFound } from "next/navigation";
 
-export async function getSnippet(id: string) {
+async function getSnippet(id: string) {
   await sleep(1000);
   const snippet = snippets.find((s) => s.id === id);
   return { snippet };
