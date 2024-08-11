@@ -9,23 +9,20 @@ if (!process.env.DATABASE_URL) {
 const client = postgres(process.env.DATABASE_URL);
 const db = drizzle(client);
 
-type Snippet = typeof snippet.$inferSelect;
+type Snippet = Omit<typeof snippet.$inferInsert, "id">;
 
 const SEED_SNIPPETS: Snippet[] = [
   {
-    id: 1,
     title: "Snippet 1",
     code: "console.log('Hello, world!')",
     author: "John Doe",
   },
   {
-    id: 2,
     title: "Snippet 2",
     code: "print('Hello, world!')",
     author: "Jane Doe",
   },
   {
-    id: 3,
     title: "Snippet 3",
     code: "fmt.Println('Hello, world!')",
     author: "John Doe",
