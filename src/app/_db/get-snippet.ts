@@ -1,3 +1,4 @@
+import "server-only";
 import { db } from "@/db/drizzle";
 import { snippet } from "@/db/schema";
 import { eq } from "drizzle-orm";
