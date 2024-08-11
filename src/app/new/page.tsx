@@ -4,18 +4,13 @@ import { SnippetForm } from "@/components/snippet-form";
 import { createSnippet } from "./actions";
 import { useFormState } from "react-dom";
 
-const initialState = {
-  errors: {
-    title: [],
-    language: [],
-    code: [],
-  },
-};
 export default function Page() {
-  const [state, formAction, isPending] = useFormState(
-    createSnippet,
-    initialState,
-  );
+  const [state, formAction, isPending] = useFormState(createSnippet, {
+    errors: {
+      title: [],
+      code: [],
+    },
+  });
 
   return (
     <div className="space-y-2">
