@@ -1,8 +1,12 @@
-import { getSnippet } from "@/store";
+import { getSnippet } from "@/app/_db/get-snippet";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const { snippet } = await getSnippet(params.id);
+  if (Number.isNaN(parseInt(params.id))) {
+    notFound();
+  }
+
+  const snippet = await getSnippet(parseInt(params.id));
 
   if (!snippet) {
     notFound();

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { getSnippets } from "@/store";
+import { getSnippets } from "@/app/_db/get-snippets";
 
 export default async function Home() {
-  const { snippets } = await getSnippets();
+  const snippets = await getSnippets();
 
   return (
     <div className="space-y-1">
