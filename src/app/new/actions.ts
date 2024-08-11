@@ -24,7 +24,7 @@ export async function createSnippet(_: any, formData: FormData) {
     code: validatedFields.data.code,
   };
 
-  addSnippet(snippet);
+  await addSnippet(snippet);
 
   redirect("/");
 }
