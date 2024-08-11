@@ -13,19 +13,16 @@ interface FormProps {
 }
 
 export function Form({ snippet }: FormProps) {
-  const [state, formAction, isPending] = useFormState(updateSnippet, {
+  const [{ errors }, formAction, isPending] = useFormState(updateSnippet, {
     id: snippet.id,
-    errors: {
-      title: [],
-      code: [],
-    },
+    errors: {},
   });
 
   return (
     <SnippetForm
       action={formAction}
       isPending={isPending}
-      errors={state?.errors}
+      errors={errors}
       defaultValues={{
         title: snippet.title,
         code: snippet.code,

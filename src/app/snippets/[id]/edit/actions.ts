@@ -4,12 +4,20 @@ import { z } from "zod";
 import { updateSnippet as updateSnippetInDb } from "@/app/_db/update-snippet";
 import { redirect } from "next/navigation";
 
+interface State {
+  id: number;
+  errors: {
+    title?: string[];
+    code?: string[];
+  };
+}
+
 const schema = z.object({
   title: z.string().min(1, { message: "Title is required" }),
   code: z.string().min(1, { message: "Code is required" }),
 });
 
-export async function updateSnippet({ id }: any, formData: FormData) {
+export async function updateSnippet({ id }: State, formData: FormData) {
   const validatedFields = schema.safeParse({
     title: formData.get("title"),
     code: formData.get("code"),
