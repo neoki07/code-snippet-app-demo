@@ -9,7 +9,7 @@ interface EditButtonProps {
 export function EditButton({ snippetId }: EditButtonProps) {
   return (
     <Link
-      href={`/edit/${snippetId}`}
+      href={`/snippets/${snippetId}/edit`}
       className="underline hover:no-underline text-xs"
     >
       edit
