@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { currentUser } from "@clerk/nextjs/server";
 import { addSnippet } from "@/app/_db/add-snippet";
 
 const schema = z.object({
@@ -20,12 +19,9 @@ export async function createSnippet(_: any, formData: FormData) {
     return { errors: validatedFields.error.flatten().fieldErrors };
   }
 
-  const user = await currentUser();
-
   const snippet = {
     title: validatedFields.data.title,
     code: validatedFields.data.code,
-    author: user?.firstName ?? "",
   };
 
   addSnippet(snippet);

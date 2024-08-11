@@ -1,10 +1,16 @@
 import "server-only";
 import { db } from "@/db/drizzle";
 import { snippet } from "@/db/schema";
+import { currentUser } from "@clerk/nextjs/server";
 
-type Snippet = Omit<typeof snippet.$inferInsert, "id">;
+type Snippet = Omit<typeof snippet.$inferInsert, "id" | "author">;
 
 export async function addSnippet(data: Snippet) {
-  const [result] = await db.insert(snippet).values(data).returning();
+  const user = await currentUser();
+
+  const [result] = await db
+    .insert(snippet)
+    .values({ ...data, author: user?.firstName ?? "" })
+    .returning();
   return result;
 }
