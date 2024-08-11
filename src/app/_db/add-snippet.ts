@@ -3,7 +3,7 @@ import { db } from "@/db/drizzle";
 import { snippet } from "@/db/schema";
 import { currentUser } from "@clerk/nextjs/server";
 
-type Snippet = Omit<typeof snippet.$inferInsert, "id" | "author">;
+type Snippet = Omit<typeof snippet.$inferInsert, "id" | "authorId">;
 
 export async function addSnippet(data: Snippet) {
   const user = await currentUser();
