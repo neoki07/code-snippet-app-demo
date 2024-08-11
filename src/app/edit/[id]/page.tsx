@@ -1,6 +1,7 @@
 import { getSnippet } from "@/app/_db/get-snippet";
 import { currentUser } from "@clerk/nextjs/server";
 import { notFound, redirect } from "next/navigation";
+import { Form } from "./form";
 
 export default async function Page({ params }: { params: { id: string } }) {
   if (Number.isNaN(parseInt(params.id))) {
@@ -19,8 +20,9 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <div>
+    <div className="space-y-2">
       <h1 className="font-bold text-2xl inline">Edit Snippet</h1>
+      <Form snippet={snippet} />
     </div>
   );
 }
