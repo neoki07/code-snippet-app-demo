@@ -41,7 +41,7 @@ export default function RootLayout({
                   href="/new"
                   className="text-white hover:text-gray-200 hover:underline"
                 >
-                  Add Snippet
+                  Create Snippet
                 </Link>
                 <div className="w-7 flex items-center">
                   <UserButton />

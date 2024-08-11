@@ -9,7 +9,7 @@ export default async function Home() {
       <h1 className="font-bold text-2xl">Snippets</h1>
       <ul className="list-disc list-outside ml-5">
         {snippets.map((snippet) => (
-          <li key={snippet.title}>
+          <li key={snippet.id}>
             <div>
               <Link
                 href={`snippets/${snippet.id}`}
