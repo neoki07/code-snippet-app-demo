@@ -29,7 +29,7 @@ export function SnippetForm({
             id="title"
             name="title"
             defaultValue={defaultValues?.title}
-            className="border border-gray-300 rounded-md px-2 py-1.5 text-sm"
+            className="border border-gray-300 rounded-md px-2.5 py-1.5 text-sm"
           />
           {errors?.title?.map((error) => (
             <p key={error} aria-live="polite" className="text-red-500 text-sm">
@@ -46,7 +46,7 @@ export function SnippetForm({
             name="code"
             defaultValue={defaultValues?.code}
             rows={10}
-            className="border border-gray-300 rounded-md px-2 py-1.5 text-sm"
+            className="border border-gray-300 rounded-md px-2.5 py-1.5 text-sm"
           />
           {errors?.code?.map((error) => (
             <p key={error} aria-live="polite" className="text-red-500 text-sm">
