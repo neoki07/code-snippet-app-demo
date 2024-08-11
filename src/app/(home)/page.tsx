@@ -19,7 +19,7 @@ export default async function Home() {
               </Link>
               <span className="text-gray-700 text-xs">
                 {" "}
-                by {snippet.author}
+                by {snippet.authorName}
               </span>
             </div>
           </li>

@@ -4,5 +4,5 @@ export const snippet = pgTable("snippet", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
   code: text("code").notNull(),
-  author: text("author").notNull(),
+  authorId: text("author_id").notNull(),
 });

@@ -1,0 +1,1 @@
+ALTER TABLE "snippet" RENAME COLUMN "author" TO "author_id";

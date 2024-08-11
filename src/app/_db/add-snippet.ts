@@ -7,10 +7,14 @@ type Snippet = Omit<typeof snippet.$inferInsert, "id" | "author">;
 
 export async function addSnippet(data: Snippet) {
   const user = await currentUser();
+  if (!user) {
+    throw new Error("You must be logged in to add a snippet");
+  }
 
   const [result] = await db
     .insert(snippet)
-    .values({ ...data, author: user?.firstName ?? "" })
+    .values({ ...data, authorId: user.id })
     .returning();
+
   return result;
 }

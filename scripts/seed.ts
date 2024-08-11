@@ -15,17 +15,17 @@ const SEED_SNIPPETS: Snippet[] = [
   {
     title: "Snippet 1",
     code: "console.log('Hello, world!')",
-    author: "John Doe",
+    authorId: "user_2kVOi3j2pY7okDguT75cHYz83Cr",
   },
   {
     title: "Snippet 2",
     code: "print('Hello, world!')",
-    author: "Jane Doe",
+    authorId: "user_2kVOjifW9IxFBkcbPAtHBNEZu2D",
   },
   {
     title: "Snippet 3",
     code: "fmt.Println('Hello, world!')",
-    author: "John Doe",
+    authorId: "user_2kVOi3j2pY7okDguT75cHYz83Cr",
   },
 ];
 
