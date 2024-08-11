@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getSnippets } from "@/app/_db/get-snippets";
 import { currentUser } from "@clerk/nextjs/server";
 import { DeleteButton } from "./delete-button";
+import { EditButton } from "./edit-button";
 
 export default async function Home() {
   const snippets = await getSnippets();
@@ -24,7 +25,8 @@ export default async function Home() {
                 by {snippet.authorName}
               </span>
               {loggedInUser?.id === snippet.authorId && (
-                <span className="ml-2">
+                <span className="ml-1.5 space-x-1.5">
+                  <EditButton snippetId={snippet.id} />
                   <DeleteButton snippetId={snippet.id} />
                 </span>
               )}
