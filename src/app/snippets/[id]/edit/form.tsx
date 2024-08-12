@@ -1,8 +1,8 @@
 "use client";
 
 import { SnippetForm } from "@/components/snippet-form";
-import { useFormState } from "react-dom";
 import { updateSnippet } from "./actions";
+import { useActionState } from "react";
 
 interface FormProps {
   snippet: {
@@ -13,7 +13,7 @@ interface FormProps {
 }
 
 export function Form({ snippet }: FormProps) {
-  const [{ errors }, formAction, isPending] = useFormState(updateSnippet, {
+  const [{ errors }, formAction, isPending] = useActionState(updateSnippet, {
     id: snippet.id,
     errors: {},
   });
