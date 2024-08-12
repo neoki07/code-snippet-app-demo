@@ -56,7 +56,8 @@ export function SnippetForm({
         </div>
         <button
           type="submit"
-          className="bg-black px-3 h-8 text-white rounded-md font-semibold text-sm"
+          disabled={isPending}
+          className="bg-black px-3 h-8 text-white rounded-md font-semibold text-sm disabled:opacity-70"
         >
           {isPending ? "Submitting..." : "Submit"}
         </button>

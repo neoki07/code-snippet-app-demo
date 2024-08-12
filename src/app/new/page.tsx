@@ -2,10 +2,10 @@
 
 import { SnippetForm } from "@/components/snippet-form";
 import { createSnippet } from "./actions";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 
 export default function Page() {
-  const [{ errors }, formAction, isPending] = useFormState(createSnippet, {
+  const [{ errors }, formAction, isPending] = useActionState(createSnippet, {
     errors: {},
   });
 
